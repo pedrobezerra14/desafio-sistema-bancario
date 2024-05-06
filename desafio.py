@@ -18,15 +18,20 @@ while True:
     opcao = input(menu)
 
     if opcao == "d":
- 
+        valor_deposito = float(input('Informe o valor que deseja depositar: '))
+        if valor_deposito > 0 and valor_deposito <= 500:
+            saldo += valor_deposito
+            extrato += (f'R${valor_deposito:.2f}')
+        else:
+            print('Só é possível depositar valores positivos!')
 
-    elif opcao == "s":
+    # elif opcao == "s":
         
 
-    elif opcao == "e":
-        print("\n================ EXTRATO ================")
+    # elif opcao == "e":
+    #     print("\n================ EXTRATO ================")
         
-        print("==========================================")
+    #     print("==========================================")
 
     elif opcao == "q":
         break
