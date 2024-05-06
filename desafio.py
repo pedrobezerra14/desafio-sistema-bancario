@@ -19,23 +19,33 @@ while True:
 
     if opcao == "d":
         valor_deposito = float(input('Informe o valor que deseja depositar: '))
-        if valor_deposito > 0 and valor_deposito <= 500:
+        
+        if valor_deposito > 0:
             saldo += valor_deposito
-            extrato += (f'Depósito: R${valor_deposito:.2f}')
+            extrato += f'Depósito: R${valor_deposito:.2f}\n'
+            
         else:
             print('Só é possível depositar valores positivos!')
 
     elif opcao == "s":
-        if numero_saques <= LIMITE_SAQUES:
+        
+        if numero_saques < LIMITE_SAQUES:
+            numero_saques += 1
             valor_saque = float(input('Informe o valor que deseja sacar: '))
-            if valor_saque <= 500:
-                numero_saques += 1
+            
+            if valor_saque <= limite and valor_saque > 0:
                 saldo -= valor_saque
-                extrato += (f'Saque: R${valor_saque:.2f}')
+                extrato += f'Saque: R${valor_saque:.2f}\n'
+                
             else:
-                print('Você só pode sacar até R$500!')
+                print('Digite um valor válido!')
+                
         else:
-            print('Você excedeu o limite de saques!')
+            print('''
+            ==========================================
+                  Você excedeu o limite de saques!
+            ==========================================      
+                  ''')
                 
         
 
