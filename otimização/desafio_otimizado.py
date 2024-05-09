@@ -1,11 +1,17 @@
-menu = """
+import textwrap
 
-[d] Depositar
-[s] Sacar
-[e] Extrato
-[q] Sair
-
-=> """
+def menu():
+    menu = """\n
+    =========== MENU ===========
+    [d]\tDepositar
+    [s]\tSacar
+    [e]\tExtrato
+    [nc]\tNova Conta
+    [lc]\tListar Contas
+    [nu]\tNovo Usuário
+    [q]\tSair
+    => """
+    return input(textwrap.dedent(menu))
 
 saldo = 0
 limite = 500
@@ -15,7 +21,7 @@ LIMITE_SAQUES = 3
 
 while True:
 
-    opcao = input(menu)
+    opcao = menu()
 
     if opcao == "d":
         valor = float(input("Informe o valor do depósito: "))
